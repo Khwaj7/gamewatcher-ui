@@ -4,62 +4,83 @@ import AddNewGame from '../components/AddNewGame.tsx';
 import Dashboard from './Dashboard.tsx';
 import { ColorModeButton } from '../components/ui/color-mode.tsx';
 import GameWatcherStatus from '../components/GameWatcherStatus.tsx';
+import { IMenuLink } from '../interfaces/IMenuLink.ts';
+import MainAcquisition from './acquisition/MainAcquisition.tsx';
 
 const Home = () => {
-  const [showWatchedGames, setShowWatchedGames] = useState<boolean>(false);
   const [showDashboard, setShowDashboard] = useState<boolean>(true);
+  const [showWatchedGames, setShowWatchedGames] = useState<boolean>(false);
+  const [showAcquisition, setShowAcquisition] = useState<boolean>(false);
 
-  const links = [{
+  const links: IMenuLink[] = [{
     label: 'Dashboard', href: '/', stateSetter: () => {
       setShowDashboard(true);
       setShowWatchedGames(false);
+      setShowAcquisition(false);
     },
-  }, {
-    label: 'Your watched games', href: '/games', stateSetter: () => {
-      setShowDashboard(false);
-      setShowWatchedGames(true);
+  },
+    {
+      label: 'Your watched games', href: '/games', stateSetter: () => {
+        setShowDashboard(false);
+        setShowWatchedGames(true);
+        setShowAcquisition(false);
+      },
     },
-  }];
+    {
+      label: 'Add a new server', href: '/acquisition', stateSetter: () => {
+        setShowDashboard(false);
+        setShowWatchedGames(false);
+        setShowAcquisition(true);
+      },
+    },
+  ];
 
   return (
     <>
-      <Box className="max-w-4xl" mx="auto" mt={8} padding={8}>
+      <Box
+        position="fixed"
+        top="1rem"
+        right="2rem"
+        zIndex={1000}
+        userSelect="none"
+        display="flex"
+        alignItems="center"
+        gap={3}
+      >
+        <ColorModeButton />
+        <GameWatcherStatus />
+      </Box>
+
+      <Flex minH="100vh">
         <Box
+          borderRight="1px solid"
+          borderColor="blackAlpha.200"
+          _dark={{ borderColor: 'whiteAlpha.300' }}
+          w="200px"
+          flexShrink={0}
           position="fixed"
-          top="1rem"
-          right="2rem"
-          zIndex={1000}
-          userSelect="none"
-          display="flex"
-          alignItems="center"
-          gap={3}
+          left={0}
+          top={0}
+          bottom={0}
+          p={4}
         >
-          <ColorModeButton />
-          <GameWatcherStatus />
+          <Heading size="xl" mb={6}>
+            Game Watcher
+          </Heading>
+          <Flex direction="column" gap={2}>
+            {links.map((link) => (
+              <Button key={link.label} variant="outline" onClick={link.stateSetter} justifyContent="flex-start">
+                {link.label}
+              </Button>))}
+          </Flex>
         </Box>
 
-        <div>
-          <Flex direction="column" gap={2} mt={2}>
-            <Box borderRight="1px solid black"
-                 _dark={{ borderRight: '1px solid white' }}
-                 flexShrink={0}
-                 w={200}
-                 pr={2}>
-              <Heading size="2xl" mb={2}>
-                Dashboard
-              </Heading>
-            {links.map((link) => {
-              return (<Button variant="outline" onClick={() => link.stateSetter()}>
-                {link.label}
-              </Button>);
-            })}
-            </Box>
-          </Flex>
-
-        </div>
-      </Box>
+        <Box flex="1" ml="200px" p={8} pt={16}>
+          {showAcquisition && <MainAcquisition></MainAcquisition>}
           {showDashboard && <Dashboard />}
           {showWatchedGames && <AddNewGame />}
+        </Box>
+      </Flex>
     </>
   );
 };
