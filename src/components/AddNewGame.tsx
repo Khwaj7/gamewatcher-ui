@@ -44,7 +44,7 @@ const AddNewGame = () => {
 
     return (
         <>
-            <Heading size="xl">Add a new game</Heading>
+            <Heading size="2xl" margin="0 0 2rem 0">Add a new game</Heading>
             <form onSubmit={handleSubmit((data) => console.log(data))}>
                 <Fieldset.Root invalid={invalid}>
                     <Fieldset.Legend>Select your games</Fieldset.Legend>

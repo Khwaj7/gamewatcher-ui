@@ -37,7 +37,7 @@ const MainAcquisition = () => {
 
       {steps.map((step, index) => (
         <Steps.Content key={index} index={index}>
-          <Heading>{step.description}</Heading>
+          <Heading size="2xl">{step.description}</Heading>
           <step.child></step.child>
         </Steps.Content>
       ))}
