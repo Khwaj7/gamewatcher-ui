@@ -1,9 +1,9 @@
-import GameChoice from './GameChoice.tsx';
+import AddNewGame from './AddNewGame.tsx';
 
 const GameSelector = () => {
   return (
     <>
-      <GameChoice></GameChoice>
+      <AddNewGame></AddNewGame>
     </>
   );
 };

@@ -25,7 +25,7 @@ const items = [
     {label: 'Borderlands 4', value: 'borderlands-4'}
 ];
 
-const GameChoice = () => {
+const AddNewGame = () => {
     const {
         handleSubmit,
         control,
@@ -82,4 +82,4 @@ const GameChoice = () => {
     );
 };
 
-export default GameChoice;
+export default AddNewGame;

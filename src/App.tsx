@@ -1,11 +1,15 @@
 import './App.css';
-import Dashboard from './pages/Dashboard.tsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home.tsx';
 
-function App() {
-
-  return (
-    <Dashboard></Dashboard>
-  );
+const App: React.FC = () => {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
