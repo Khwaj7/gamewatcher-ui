@@ -1,4 +1,4 @@
-import AddNewGame from './AddNewGame.tsx';
+import AddNewGame from '../pages/AddNewGame.tsx';
 
 const GameSelector = () => {
   return (

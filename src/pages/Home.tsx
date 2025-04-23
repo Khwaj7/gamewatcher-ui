@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 import { useState } from 'react';
-import AddNewGame from '../components/AddNewGame.tsx';
+import AddNewGame from './AddNewGame.tsx';
 import Dashboard from './Dashboard.tsx';
 import { ColorModeButton } from '../components/ui/color-mode.tsx';
 import GameWatcherStatus from '../components/GameWatcherStatus.tsx';
