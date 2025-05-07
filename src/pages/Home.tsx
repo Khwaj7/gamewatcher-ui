@@ -57,7 +57,7 @@ const Home = () => {
           borderRight="1px solid"
           borderColor="blackAlpha.200"
           _dark={{ borderColor: 'whiteAlpha.300' }}
-          w="200px"
+          w="250px"
           flexShrink={0}
           position="fixed"
           left={0}
@@ -68,7 +68,7 @@ const Home = () => {
           <Heading size="xl" mb={6}>
             Game Watcher
           </Heading>
-          <Flex direction="column" gap={2}>
+          <Flex direction="column" gap={1}>
             <ServerSelector></ServerSelector>
             {links.map((link) => (
               <Button key={link.label} variant="outline" onClick={link.stateSetter} justifyContent="flex-start">
@@ -77,7 +77,7 @@ const Home = () => {
           </Flex>
         </Box>
 
-        <Box flex="1" ml="200px" p={8} pt={16}>
+        <Box flex="1" ml="250px" p={8} pt={16}>
           {showAcquisition && <MainAcquisition></MainAcquisition>}
           {showDashboard && <Dashboard />}
           {showWatchedGames && <AddNewGame />}
