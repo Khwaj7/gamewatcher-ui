@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useController, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { HiOutlinePlus } from 'react-icons/hi';
-import ServerSelector from '../components/ServerSelector.tsx';
+import ServerSelector from '../components/server-selector/ServerSelector.tsx';
 
 const formSchema = z.object({
   game: z.array(z.string()).min(1, {

@@ -1,6 +1,7 @@
 import { Heading, HStack, Skeleton, SkeletonCircle, SkeletonText, Stack } from '@chakra-ui/react';
 
 const Dashboard = () => {
+
   return (
     <>
       <Heading size="2xl">Dashboard</Heading>

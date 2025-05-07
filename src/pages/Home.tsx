@@ -6,6 +6,7 @@ import { ColorModeButton } from '../components/ui/color-mode.tsx';
 import GameWatcherStatus from '../components/GameWatcherStatus.tsx';
 import { IMenuLink } from '../interfaces/IMenuLink.ts';
 import MainAcquisition from './acquisition/MainAcquisition.tsx';
+import ServerSelector from '../components/server-selector/ServerSelector.tsx';
 
 const Home = () => {
   const [showDashboard, setShowDashboard] = useState<boolean>(true);
@@ -68,6 +69,7 @@ const Home = () => {
             Game Watcher
           </Heading>
           <Flex direction="column" gap={2}>
+            <ServerSelector></ServerSelector>
             {links.map((link) => (
               <Button key={link.label} variant="outline" onClick={link.stateSetter} justifyContent="flex-start">
                 {link.label}
