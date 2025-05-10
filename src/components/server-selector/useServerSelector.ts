@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { Guild } from '../../api/interfaces/guilds/response/Guild.ts';
-import { getGuilds } from '../../api/interfaces/guilds/request/getGuilds.ts';
+import { IGuild } from '../../interfaces/IGuild.ts';
+import { getGuilds } from '../../api/interfaces/guilds/getGuilds.ts';
 
 function useServerSelector() {
-  const [guilds, setGuilds] = useState<Guild[]>();
+  const [guilds, setGuilds] = useState<IGuild[]>();
 
-  getGuilds().then(response => setGuilds(response.data));
+  getGuilds().then(response => {
+    console.log(response.data);
+    setGuilds(response.data);
+  });
 
   return { guilds };
 }

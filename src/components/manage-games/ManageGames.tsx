@@ -1,8 +1,8 @@
 import { Heading, SimpleGrid, Stack } from '@chakra-ui/react';
-import { IGame } from '../interfaces/IGame.ts';
-import { CardHorizontal } from '../components/ui/CardHorizontal.tsx';
+import { CardHorizontal } from '../ui/CardHorizontal.tsx';
+import useManageGames from './useManageGames.ts';
 
-const games: IGame[] = [
+/*const games: IGame[] = [
   {
     id: 1,
     name: 'Tomb Raider',
@@ -51,21 +51,22 @@ const games: IGame[] = [
       },
     ],
   },
-];
+];*/
 
-const AddNewGame = () => {
+const ManageGames = () => {
+  const { games } = useManageGames();
   return (
     <>
       <Heading size="2xl" margin="0 0 2rem 0">Add a new game</Heading>
       <Stack margin="2rem 0 0 0">
         <SimpleGrid columns={3}>
-        {games.map((game) => (
-          <CardHorizontal game={game}></CardHorizontal>
-        ))}
+          {games && games.map((game) => (
+            <CardHorizontal game={game}></CardHorizontal>
+          ))}
         </SimpleGrid>
       </Stack>
     </>
   );
 };
 
-export default AddNewGame;
+export default ManageGames;

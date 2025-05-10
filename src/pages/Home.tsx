@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 import { useState } from 'react';
-import AddNewGame from './AddNewGame.tsx';
+import ManageGames from '../components/manage-games/ManageGames.tsx';
 import Dashboard from './Dashboard.tsx';
 import { ColorModeButton } from '../components/ui/color-mode.tsx';
 import GameWatcherStatus from '../components/GameWatcherStatus.tsx';
@@ -21,7 +21,7 @@ const Home = () => {
     },
   },
     {
-      label: 'Your watched games', href: '/games', stateSetter: () => {
+      label: 'Manage your games', href: '/games', stateSetter: () => {
         setShowDashboard(false);
         setShowWatchedGames(true);
         setShowAcquisition(false);
@@ -80,7 +80,7 @@ const Home = () => {
         <Box flex="1" ml="250px" p={8} pt={16}>
           {showAcquisition && <MainAcquisition></MainAcquisition>}
           {showDashboard && <Dashboard />}
-          {showWatchedGames && <AddNewGame />}
+          {showWatchedGames && <ManageGames />}
         </Box>
       </Flex>
     </>

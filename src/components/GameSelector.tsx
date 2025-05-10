@@ -1,9 +1,9 @@
-import AddNewGame from '../pages/AddNewGame.tsx';
+import ManageGames from './manage-games/ManageGames.tsx';
 
 const GameSelector = () => {
   return (
     <>
-      <AddNewGame></AddNewGame>
+      <ManageGames></ManageGames>
     </>
   );
 };

@@ -14,15 +14,14 @@ export const CardHorizontal = (props: IProps) => {
       <Image
         objectFit="contain"
         maxW="200px"
-        src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/203160/header.jpg?t=1729010886"
+        src="https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png"
         alt="Tomb Raider"
       />
       <Box>
         <Card.Body>
           <Card.Title mb="2">{game.name}</Card.Title>
           <Card.Description>
-            Tomb Raider explores the intense origin story of Lara Croft and her ascent from a young woman to a hardened
-            survivor.
+            lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Card.Description>
         </Card.Body>
         <Card.Footer>
