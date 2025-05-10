@@ -55,13 +55,14 @@ import useManageGames from './useManageGames.ts';
 
 const ManageGames = () => {
   const { games } = useManageGames();
+
   return (
     <>
-      <Heading size="2xl" margin="0 0 2rem 0">Add a new game</Heading>
+      <Heading size="2xl" margin="0 0 2rem 0">Manage Games</Heading>
       <Stack margin="2rem 0 0 0">
         <SimpleGrid columns={3}>
           {games && games.map((game) => (
-            <CardHorizontal game={game}></CardHorizontal>
+            <CardHorizontal key={game.id} game={game}></CardHorizontal>
           ))}
         </SimpleGrid>
       </Stack>

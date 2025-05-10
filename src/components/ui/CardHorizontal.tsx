@@ -21,11 +21,17 @@ export const CardHorizontal = (props: IProps) => {
         <Card.Body>
           <Card.Title mb="2">{game.name}</Card.Title>
           <Card.Description>
-            lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing
+            elit.
           </Card.Description>
         </Card.Body>
         <Card.Footer>
-          <Button>Add</Button>
+          {game.subscribed && (
+            <Button colorPalette={'green'}>Add</Button>
+          )}
+          {!game.subscribed && (
+            <Button colorPalette={'red'}>Remove</Button>
+          )}
         </Card.Footer>
       </Box>
     </Card.Root>
