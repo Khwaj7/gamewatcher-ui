@@ -2,10 +2,12 @@ import { createListCollection, ListCollection, Portal, Select } from '@chakra-ui
 import useServerSelector from './useServerSelector.ts';
 import { useEffect, useState } from 'react';
 import { IGuildCollection } from '../../interfaces/IGuildCollection.ts';
+import { useServerStore } from '../../stores/useServerStore.ts';
 
 const ServerSelector = () => {
   const { guilds } = useServerSelector();
   const [guildCollection, setGuildCollection] = useState<ListCollection<IGuildCollection>>();
+  const { server, selectServer } = useServerStore();
 
 
   useEffect(() => {
@@ -16,13 +18,19 @@ const ServerSelector = () => {
         value: guild.id,
       })),
     }));
-  }, [guilds])
+  }, [guilds]);
 
 
   if (!guildCollection) return null;
 
   return (
-    <Select.Root collection={guildCollection} size="sm">
+    <Select.Root
+      collection={guildCollection}
+      size="sm"
+      onValueChange={(value) => {
+        console.log('server selected:', value);
+        //selectServer({id: value.});
+      }}>
       <Select.HiddenSelect />
       <Select.Label>Select your server</Select.Label>
       <Select.Control>
