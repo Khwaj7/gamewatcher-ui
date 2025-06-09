@@ -1,12 +1,19 @@
 import { Box, Button, Card, Image } from '@chakra-ui/react';
 import { IGame } from '../../interfaces/IGame.ts';
+import useHorizontalCardGame from './useHorizontalCardGame.ts';
+import { useServerStore } from '../../stores/useServerStore.ts';
 
 interface IProps {
   game: IGame;
 }
 
-export const CardHorizontal = (props: IProps) => {
+export const HorizontalCardGame = (props: IProps) => {
   const { game } = props;
+  const { server } = useServerStore();
+  const { toggleSubscription } = useHorizontalCardGame({ guildId: server.id, gameId: game.id });
+
+  const color = game.subscribed ? 'green' : 'red';
+  const buttonMessage = game.subscribed ? 'Remove' : 'Add';
 
   return (
 
@@ -15,7 +22,7 @@ export const CardHorizontal = (props: IProps) => {
         objectFit="contain"
         maxW="200px"
         src="https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png"
-        alt="Tomb Raider"
+        alt="Game image"
       />
       <Box>
         <Card.Body>
@@ -26,12 +33,7 @@ export const CardHorizontal = (props: IProps) => {
           </Card.Description>
         </Card.Body>
         <Card.Footer>
-          {game.subscribed && (
-            <Button colorPalette={'green'}>Add</Button>
-          )}
-          {!game.subscribed && (
-            <Button colorPalette={'red'}>Remove</Button>
-          )}
+          <Button colorPalette={color} onClick={() => toggleSubscription()}>{buttonMessage}</Button>
         </Card.Footer>
       </Box>
     </Card.Root>

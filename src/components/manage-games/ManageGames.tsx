@@ -1,5 +1,5 @@
 import { Heading, SimpleGrid, Stack } from '@chakra-ui/react';
-import { CardHorizontal } from '../ui/CardHorizontal.tsx';
+import { HorizontalCardGame } from '../ui/HorizontalCardGame.tsx';
 import useManageGames from './useManageGames.ts';
 
 /*const games: IGame[] = [
@@ -62,7 +62,7 @@ const ManageGames = () => {
       <Stack margin="2rem 0 0 0">
         <SimpleGrid columns={3}>
           {games && games.map((game) => (
-            <CardHorizontal key={game.id} game={game}></CardHorizontal>
+            <HorizontalCardGame key={game.id} game={game}></HorizontalCardGame>
           ))}
         </SimpleGrid>
       </Stack>

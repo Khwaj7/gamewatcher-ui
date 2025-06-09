@@ -6,7 +6,7 @@ function useServerSelector() {
   const [guilds, setGuilds] = useState<IGuild[]>();
 
   getGuilds().then(response => {
-    console.log(response.data);
+    console.log('guilds', response.data);
     setGuilds(response.data);
   });
 

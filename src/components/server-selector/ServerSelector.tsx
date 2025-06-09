@@ -7,7 +7,7 @@ import { useServerStore } from '../../stores/useServerStore.ts';
 const ServerSelector = () => {
   const { guilds } = useServerSelector();
   const [guildCollection, setGuildCollection] = useState<ListCollection<IGuildCollection>>();
-  const { server, selectServer } = useServerStore();
+  const { selectServer } = useServerStore();
 
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const ServerSelector = () => {
       size="sm"
       onValueChange={(value) => {
         console.log('server selected:', value);
-        //selectServer({id: value.});
+        selectServer({ id: value.items[0].label, channel_id: value.items[0].value, webhook_url: 'webhookurl' });
       }}>
       <Select.HiddenSelect />
       <Select.Label>Select your server</Select.Label>
